@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="watch2" size="230.000000 297.024536" />
+    <ImageTarget name="PubTudor" size="200.000000 258.282196" />
+    <ImageTarget name="news2" size="230.000000 297.024536" />
+    <ImageTarget name="Magazine30Cover" size="200.000000 258.282196" />
+    <ImageTarget name="Sommaire1" size="200.000000 258.282196" />
+    <ImageTarget name="IRLPubArbre" size="200.000000 282.550323" />
+    <ImageTarget name="news1" size="230.000000 297.024536" />
+    <ImageTarget name="Sommaire2" size="200.000000 258.282196" />
+    <ImageTarget name="watch1" size="230.000000 297.024536" />
+  </Tracking>
+</QCARConfig>
