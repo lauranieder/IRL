@@ -13,7 +13,13 @@ public class CarteAnime : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pages = new List<GameObject>();
-		StartCoroutine(launch());
+
+	}
+	void On() {
+		StartCoroutine("launch");
+	}
+	void Off() {
+		StopCoroutine("launch");
 	}
 	IEnumerator launch() {
 		while(true) {
@@ -66,9 +72,10 @@ public class CarteAnime : MonoBehaviour {
 		current.transform.Translate(0, 100, 0);
 		current.animation.Play();
 		//
-		if(pages.Count > 3) {
+		if(pages.Count > nbr) {
 			Debug.Log(pages.Count);
 			GameObject toDestroy = pages[0].gameObject;
+			pages.RemoveAt(0);
 			Destroy(toDestroy);
 		}
 		pages.Add(current);
