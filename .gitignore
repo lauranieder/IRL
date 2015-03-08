@@ -47,3 +47,5 @@ IRL/Assembly-UnityScript-Editor-firstpass.unityproj
 IRL/IRL.userprefs
 
 IRL/IRL.sln
+
+*.csproj
