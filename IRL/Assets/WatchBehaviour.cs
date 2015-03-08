@@ -11,6 +11,8 @@ public class WatchBehaviour : MonoBehaviour {
 	public GameObject MinuteHand;
 	public GameObject HourHand;
 
+	public Quaternion startRotation;
+
 	// Use this for initialization
 	void Awake () {
 		Debug.Log ("awake");
@@ -21,12 +23,16 @@ public class WatchBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("start");
+		startRotation = transform.localRotation;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		if(!animation.isPlaying){
+
 		transform.Rotate(Vector3.right * Time.deltaTime *speed);
+		}
 
 		DateTime currentTime = DateTime.Now;
 		float second = (float) currentTime.Second;
@@ -41,5 +47,18 @@ public class WatchBehaviour : MonoBehaviour {
 		MinuteHand.transform.localRotation = Quaternion.Euler(0,minuteAngle, 0);
 		HourHand.transform.localRotation = Quaternion.Euler(0,hourAngle, 0);
 	
+	}
+
+	void On(){
+		transform.localRotation = startRotation;
+		//Animator.SetTrigger("WatchAppear");
+		animation.Play();
+
+
+	}
+
+	void Off(){
+
+
 	}
 }
