@@ -4,7 +4,7 @@ using System.Collections;
 public class Fly : MonoBehaviour {
 	float f;
 	float growing = 0;
-	Vector3 scaling = new Vector3(10, 10, 10);
+	Vector3 scaling = new Vector3(13, 13, 13);
 	public bool shaked = false;
 	Vector3 nextPoint = new Vector3();
 	Vector3 currentPoint;
