@@ -4,44 +4,74 @@ using System.Collections;
 public class Fly : MonoBehaviour {
 	float f;
 	float growing = 0;
-	Vector3 s = new Vector3(10f, 10f, 10f);
+	Vector3 scaling = new Vector3(10, 10, 10);
 	public bool shaked = false;
-	Vector3 nextPoint;
-	Vector3 basePoint;
+	Vector3 nextPoint = new Vector3();
 	Vector3 currentPoint;
 	Vector3 diff;
 	Vector3 vel;
 	float delayPi;
 	float speed;
+	float speedTemp;
 	float mag;
+	float parentSpeed = 0;
+	float parentDist = 0;
+	Vector3 parentOldPos;
+	Vector3 parentPos;
+	GameObject arbreBase;
 	AudioSource ac;
+	float quot;
+	GameObject p;
+	bool afraid = false;
 	// Use this for initialization
 	void Start () {
 		delayPi = Random.Range(5f, 10f);
 		ac = GetComponent<AudioSource>();
 		ac.pitch = Random.Range(2, 5);
 		//
-		speed = Random.Range(0.6f, 0.8f);
-		basePoint = transform.position;
+		speed = Random.Range(1.5f, 3.5f);
 		f = Random.Range(0.1f, 1f);
-		this.transform.localScale = s;
-		StartCoroutine("grow");
+		arbreBase = GameObject.Find("ARBRE");
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		/*this.rigidbody.AddTorque(f, 0, f);
-		if(shaked) {
-			this.rigidbody.AddForce(f/2, f, 0);
-
-		}*/
+		speedTemp += (speed-speedTemp)/2f;
+		parentOldPos = parentPos;
+		parentPos = p.transform.position;
+		parentDist += Vector3.Distance(parentOldPos, parentPos);
+		parentDist *= 0.95f;
+		//
+		if(parentDist > 100) {
+			parentDist = 0;
+			StartCoroutine("fear");
+		}
+		if(afraid) {
+			// nothing
+		} else {
+			nextPoint = parentPos;
+		}
+	}
+	IEnumerator fear() {
+		afraid = true;
+		//speedTemp *=5;
+		genNextPoint();
+		yield return new WaitForSeconds(Random.Range(1f, 3f));
+		nextPoint = parentPos;
+		afraid = false;
+	}
+	void SetParent(GameObject _p) {
+		p = _p;
+		parentOldPos = p.transform.position;
+		parentPos = p.transform.position;
+		StartCoroutine("move");
+		StartCoroutine("grow");
 	}
 	void genNextPoint() {
-		nextPoint = Random.insideUnitSphere*10+basePoint;
-		if(nextPoint.y<0) {
-			nextPoint.y*=-1;
-		}
-		nextPoint.y+=1;
+		Vector3 diff = parentPos-arbreBase.transform.position;
+		nextPoint = arbreBase.transform.position+diff*1.5f+Random.insideUnitSphere*100;
 	}
 	IEnumerator pi() {
 		while(true) {
@@ -50,35 +80,36 @@ public class Fly : MonoBehaviour {
 		}
 	}
 	IEnumerator move() {
-		genNextPoint();
 		while(true) {
 			currentPoint = transform.position;
 			if(Vector3.Distance(nextPoint, currentPoint) < 25f) {
 				genNextPoint();
 			}
 			diff = nextPoint-currentPoint;
-			//mag = diff.magnitude;
-			vel += diff.normalized*0.1f;
-			if(vel.magnitude > speed) {
-				vel.Normalize();
-				vel*=speed;
+
+			if(diff.magnitude < 100) {
+				quot = diff.magnitude/100f;
 			}
-			currentPoint += vel*speed;
+			quot+=0.01f;
+			//mag = diff.magnitude;
+			vel += diff*0.01f;
+			if(vel.magnitude > speedTemp*quot) {
+				vel.Normalize();
+				vel*=speedTemp*quot;
+			}
+			currentPoint += vel*speedTemp*quot;
 			transform.position = currentPoint;
 			yield return new WaitForSeconds(0.025f);
 		}
 	}
 	IEnumerator grow() {
 		while(growing < 1) {
-			s.x = growing;
-			s.y = growing;
-			s.z = growing;
-			this.transform.localScale = s*0.05f;
+			this.transform.localScale = scaling*growing;
 			growing+=0.05f;
 			yield return new WaitForSeconds(0.001f);
 		}
-		yield return new WaitForSeconds(Random.Range(0.5f, 2.5f));
-		//StartCoroutine("move");
+		//yield return new WaitForSeconds(Random.Range(0.5f, 2.5f));
+
 		//StartCoroutine("pi");
 	}
 }
