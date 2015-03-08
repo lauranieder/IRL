@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Branch : MonoBehaviour {
 	Vector3 dim;
@@ -13,13 +14,11 @@ public class Branch : MonoBehaviour {
 	Vector3 scale;
 	float delay;
 	GameObject cube;
-	bool activate = false;
+	List<GameObject> children = new List<GameObject>();
 	//Material[] materials;
 	// Use this for initialization
 	void Update() {
-		if(renderer.enabled != activate) {
-			activate = renderer.enabled;
-		}
+
 	}
 	public void CreateTree() {
 		delay = Random.Range(0.001f, 0.04f);
@@ -32,16 +31,24 @@ public class Branch : MonoBehaviour {
 		StartCoroutine("grow");
 	}
 	void DestroyTree() {
+		/*foreach(GameObject go in children) {
+			go.BroadcastMessage();
+		}*/
+	}
+	void DestroyMe() {
+	
 	}
 	void Start() {
-		activate = renderer.enabled;
+
+
 	}
 	void AddNext() {
 		if(life > 0) {
-			nbr = Random.Range(2, nbr);
+			nbr = Random.Range(1, nbr);
 			life--; 
 			for(int i=0; i<nbr+life; i++) { // nbr+life
 				GameObject cube = GameObject.Instantiate(Resources.Load("branch")) as GameObject;
+				children.Add(cube);
 				Transform target = transform.Find("target");
 				dim = new Vector3(0.1f*ratio, 2*ratio, 0.1f*ratio);
 				cube.transform.localScale = dim;
