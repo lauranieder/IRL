@@ -80,6 +80,7 @@
      <Compile Include="Assets\Resources\tree\Branch.cs" />
      <Compile Include="Assets\Resources\tree\Fly.cs" />
      <Compile Include="Assets\Resources\tree\RandomColor.cs" />
+     <Compile Include="Assets\WatchBehaviour.cs" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\license_3rdpartynotice.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
