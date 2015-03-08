@@ -66,6 +66,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour,
 
     private void OnTrackingFound()
     {
+		this.BroadcastMessage("On");
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
         Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
@@ -86,7 +87,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour,
 
 
     private void OnTrackingLost()
-    {
+	{
+		this.BroadcastMessage("Off");
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
         Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 

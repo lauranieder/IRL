@@ -4,7 +4,7 @@ using System.Collections;
 public class Fly : MonoBehaviour {
 	float f;
 	float growing = 0;
-	Vector3 s = new Vector3(100f, 100f, 100f);
+	Vector3 s = new Vector3(10f, 10f, 10f);
 	public bool shaked = false;
 	Vector3 nextPoint;
 	Vector3 basePoint;
@@ -37,7 +37,7 @@ public class Fly : MonoBehaviour {
 		}*/
 	}
 	void genNextPoint() {
-		nextPoint = Random.insideUnitSphere*100+basePoint;
+		nextPoint = Random.insideUnitSphere*10+basePoint;
 		if(nextPoint.y<0) {
 			nextPoint.y*=-1;
 		}
@@ -78,7 +78,7 @@ public class Fly : MonoBehaviour {
 			yield return new WaitForSeconds(0.001f);
 		}
 		yield return new WaitForSeconds(Random.Range(0.5f, 2.5f));
-		StartCoroutine("move");
+		//StartCoroutine("move");
 		//StartCoroutine("pi");
 	}
 }
