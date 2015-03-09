@@ -72,7 +72,8 @@ public class Branch : MonoBehaviour {
 			Transform target = transform.Find("target");
 			cube.transform.position = target.transform.position;
 			cube.transform.rotation = Random.rotationUniform;
-			cube.transform.parent = this.transform.parent;
+			cube.BroadcastMessage("SetParent", target.gameObject);
+			//cube.transform.parent = this.transform.parent;
 			//cube.renderer.material = materials[Random.Range(0, materials.Length)];
 
 

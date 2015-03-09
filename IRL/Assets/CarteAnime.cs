@@ -25,35 +25,35 @@ public class CarteAnime : MonoBehaviour {
 		while(true) {
 			// A
 			for(int i=0; i<nbr; i++) {
-				createOne("bcF", false);
+				createOne("bcA", false);
 				yield return new WaitForSeconds(0.1f);
 			}
 			createOne("bcA", true);
 			yield return new WaitForSeconds(5f);
 			// B
 			for(int i=0; i<nbr; i++) {
-				createOne("bcF", false);
+				createOne("bcB", false);
 				yield return new WaitForSeconds(0.1f);
 			}
 			createOne("bcB", true);
 			yield return new WaitForSeconds(5f);
 			// C
 			for(int i=0; i<nbr; i++) {
-				createOne("bcF", false);
+				createOne("bcC", false);
 				yield return new WaitForSeconds(0.1f);
 			}
 			createOne("bcC", true);
 			yield return new WaitForSeconds(5f);
 			// D
 			for(int i=0; i<nbr; i++) {
-				createOne("bcF", false);
+				createOne("bcD", false);
 				yield return new WaitForSeconds(0.1f);
 			}
 			createOne("bcD", true);
 			yield return new WaitForSeconds(5f);
 			// E
 			for(int i=0; i<nbr; i++) {
-				createOne("bcF", false);
+				createOne("bcE", false);
 				yield return new WaitForSeconds(0.1f);
 			}
 			createOne("bcE", true);
