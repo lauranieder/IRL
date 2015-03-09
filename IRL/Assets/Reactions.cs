@@ -16,12 +16,12 @@ public class Reactions : MonoBehaviour {
 		if(posDir.x<0) {
 			if(active) {
 				active = false;
-				BroadcastMessage("Open");
+				BroadcastMessage("Close", SendMessageOptions.DontRequireReceiver);
 			}
 		} else {
 			if(!active) {
 				active = true;
-				BroadcastMessage("Close", SendMessageOptions.DontRequireReceiver);
+				BroadcastMessage("Open", SendMessageOptions.DontRequireReceiver);
 			}
 		}
 	}
