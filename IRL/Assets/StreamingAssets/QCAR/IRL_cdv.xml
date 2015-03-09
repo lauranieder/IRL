@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="timelapse" size="2960.000000 3751.000000" />
+    <ImageTarget name="tero_peco" size="2960.000000 3751.000000" />
     <ImageTarget name="carteVERSO" size="8.500000 5.420197" />
     <ImageTarget name="carteRECTO" size="8.500000 5.413767" />
   </Tracking>

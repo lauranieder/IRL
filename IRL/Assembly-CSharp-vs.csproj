@@ -50,7 +50,6 @@
      <Compile Include="Assets\ArbreAnime.cs" />
      <Compile Include="Assets\CarteAnime.cs" />
      <Compile Include="Assets\Launch.cs" />
-     <Compile Include="Assets\OpenClose.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CylinderTargetBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\DataSetLoadBehaviour.cs" />
@@ -81,11 +80,10 @@
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WordBehaviour.cs" />
-     <Compile Include="Assets\Reactions.cs" />
      <Compile Include="Assets\Resources\tree\Branch.cs" />
      <Compile Include="Assets\Resources\tree\Fly.cs" />
      <Compile Include="Assets\Resources\tree\RandomColor.cs" />
-     <Compile Include="Assets\Stab.cs" />
+     <Compile Include="Assets\Script\ImageTargetHandlerPhotoGalleryAuto.cs" />
      <Compile Include="Assets\WatchBehaviour.cs" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\license_3rdpartynotice.txt" />
